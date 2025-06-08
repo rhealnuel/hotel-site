@@ -1,7 +1,9 @@
-import React, {useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import roompic from '../image/room3.jpg'
 import {PiTelevisionSimple, PiShower, PiWifiHighLight} from 'react-icons/pi'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { fetchRooms } from '../functions/fetchRooms';
+import { HashLoader } from 'react-spinners';
 
 function Room() {
 
@@ -273,10 +275,32 @@ function Room() {
 
         }
     }
+    const navigate = useNavigate()
+     const [searchParams] = useSearchParams();
 
+    const queryParams = searchParams.get('type');
+    const [type, setType] = useState('')
+    const [limit, setLimit] = useState(10)
+    const [data, setData] = useState(null);       // To store fetched data
+    const [loading, setLoading] = useState(true); // Loading state
+    const [error, setError] = useState(null); 
 
+    const query = `rooms`
+    const query2 =`rooms?type=${type}&limit=${limit}`
+    const query3 =`rooms?type=${queryParams}&limit=${limit}`
 
+    useEffect(() => {
+        if(type?.trim() && type !== "all"){
+            fetchRooms(query2,setData, setLoading, setError)
+        }else if(queryParams?.trim() && queryParams !== "all"){
+            fetchRooms(query3,setData, setLoading, setError)
+        }else{
+            fetchRooms(query,setData, setLoading, setError)
+        }
+    }, [type, queryParams])
 
+    console.log("data", data);
+    
 
   return (
     <div className=' overflow-x-hidden'>
@@ -284,26 +308,49 @@ function Room() {
 
         <hr />
         <div className='flex items-center justify-evenly text-[20px] font-bold text-gray-400'>
-            <div><button ref={all} onClick={allclick} className='text-[#7C6A46] py-4 lg:w-[250px] border-b-[4px]  border-[#7C6A46]'>All</button></div>
-            <div><button ref={quest} onClick={questclick} className='hover:text-[#7C6A46] py-4 lg:w-[250px]  border-[#7C6A46]'>Quest Rooms</button></div>
-            <div><button ref={suite} onClick={suiteclick} className='hover:text-[#7C6A46] py-4 lg:w-[250px]  border-[#7C6A46]'>Suites</button></div>
-            <div><button ref={exec} onClick={execclick} className='hover:text-[#7C6A46] py-4 lg:w-[250px]  border-[#7C6A46]'>Executive</button></div>
+            <div><button onClick={()=>{
+                setType("all")
+                navigate("?type=all")
+            }} className={`text-[#7C6A46] py-4 lg:w-[250px] border-b-[4px]   ${type === "all" || queryParams==="all" ? "border-[#7C6A46] text-[#7C6A46]" : "border-none text-[#A5A5A5]"}`}>All</button></div>
+            <div><button ref={quest} onClick={() => {
+                setType("guest")
+                navigate("?type=guest")
+
+            }} className={`hover:text-[#7C6A46] py-4 lg:w-[250px] border-b-[4px] ${type === "guest" || queryParams === "guest" ? "border-[#7C6A46] text-[#7C6A46]" : "border-none text-[#A5A5A5]"} border-[#7C6A46]`}>Guest Rooms</button></div>
+            <div><button ref={suite} onClick={() => {
+                setType("suite")
+                navigate("?type=suite")
+             }} className={`hover:text-[#7C6A46] py-4 lg:w-[250px] border-b-[4px] ${type === "suite" || queryParams === "suite" ? "border-[#7C6A46] text-[#7C6A46]" : "border-none text-[#A5A5A5]"}  border-[#7C6A46]`}>Suites</button></div>
+            <div><button ref={exec} onClick={() => {
+                setType("executive")
+                navigate("?type=executive")
+             }} className={`hover:text-[#7C6A46] py-4 lg:w-[250px] border-b-[4px] ${type === "executive" || queryParams === "executive" ? "border-[#7C6A46] text-[#7C6A46]" : "border-none text-[#A5A5A5]"} border-[#7C6A46]`}>Executive</button></div>
         </div>
         <hr />
 
+{
+    loading ? 
+        <div className='h-[400px] w-full bg-white flex items-center justify-center'>
+                <HashLoader
+                    color={"#7C6A46"}
+                    size={70}
+                    aria-label="Loading Spinner"
 
-        <div ref={all1} className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 px-5  lg:px-20 gap-16'>
-            {roomlay1.map(room =>(
-                <div key={room.id} className='w-fit h-fit bg-white shadow-xl text-[#7C6A46]  '>
+                />
+        </div>
+    : 
+        <div  className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 px-5  lg:px-20 gap-16'>
+            {data?.rooms?.map(room =>(
+                <div key={room?._id} className='w-fit h-fit bg-white shadow-xl text-[#7C6A46]  '>
                 <div>
-                    <img src={room.image} alt="roompic"  className='w-[410px]'/>
+                    <img src={room?.image} alt="roompic"  className='w-[410px]'/>
                 </div>
                 <div className='flex justify-between p-2'>
-                    <p className='text-[20px] font-semibold'>{room.type}</p>
-                    <p>Available: Yes</p>
+                    <p className='text-[20px] font-semibold'>{room?.name}</p>
+                    <p>Available: {room?.available ? "Yes" : "No"}</p>
                 </div>
                 <div className='p-2'>
-                    <p className='text-[15px] font-semibold'>{room.price} </p>
+                    <p className='text-[15px] font-semibold'>${room?.price?.toLocaleString()} </p>
                 </div>
                 <hr />
                 <div className='flex justify-between p-2 items-center'>
@@ -319,120 +366,19 @@ function Room() {
                         </div>
                     </div>
                     <div>
-                      <Link to={room.link}><button className='bg-[#7C6A46] px-6 py-2 text-white'>Book Now</button></Link>  
+                    <Link to={`/rooms/rooms/${room?._id}`}><button className='bg-[#7C6A46] px-6 py-2 text-white'>Book Now</button></Link>  
                     </div>
                 </div>
             </div>
             ))}
         </div>
 
-
-
-        <div ref={quest1} className='hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 px-5  lg:px-20 gap-16'>
-            {roomlay2.map(room =>(
-                <div key={room.id} className='w-fit h-fit bg-white shadow-xl text-[#7C6A46]  '>
-                <div>
-                    <img src={room.image} alt="roompic"  className='w-[410px]'/>
-                </div>
-                <div className='flex justify-between p-2'>
-                    <p className='text-[20px] font-semibold'>{room.type}</p>
-                    <p>Available: Yes</p>
-                </div>
-                <div className='p-2'>
-                    <p className='text-[15px] font-semibold'>{room.price} </p>
-                </div>
-                <hr />
-                <div className='flex justify-between p-2 items-center'>
-                    <div className='flex gap-2'>
-                        <div className='w-fit h-fit bg-[whitesmoke] p-2 rounded-full'>
-                            <PiTelevisionSimple size={25}/>
-                        </div>
-                        <div className='w-fit h-fit bg-[whitesmoke] p-2 rounded-full'>
-                            <PiShower size={25} />
-                        </div>
-                        <div className='w-fit h-fit bg-[whitesmoke] p-2 rounded-full'>
-                            <PiWifiHighLight size={25}/>
-                        </div>
-                    </div>
-                    <div>
-                    <Link to={room.link}><button className='bg-[#7C6A46] px-6 py-2 text-white'>Book Now</button></Link>  
-                    </div>
-                </div>
-            </div>
-            ))}
-        </div>
+    
+}
 
 
 
-        <div ref={suite1} className='hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 px-5  lg:px-20 gap-16'>
-            {roomlay3.map(room =>(
-                <div key={room.id} className='w-fit h-fit bg-white shadow-xl text-[#7C6A46]  '>
-                <div>
-                    <img src={room.image} alt="roompic"  className='w-[410px]'/>
-                </div>
-                <div className='flex justify-between p-2'>
-                    <p className='text-[20px] font-semibold'>{room.type}</p>
-                    <p>Available: Yes</p>
-                </div>
-                <div className='p-2'>
-                    <p className='text-[15px] font-semibold'>{room.price} </p>
-                </div>
-                <hr />
-                <div className='flex justify-between p-2 items-center'>
-                    <div className='flex gap-2'>
-                        <div className='w-fit h-fit bg-[whitesmoke] p-2 rounded-full'>
-                            <PiTelevisionSimple size={25}/>
-                        </div>
-                        <div className='w-fit h-fit bg-[whitesmoke] p-2 rounded-full'>
-                            <PiShower size={25} />
-                        </div>
-                        <div className='w-fit h-fit bg-[whitesmoke] p-2 rounded-full'>
-                            <PiWifiHighLight size={25}/>
-                        </div>
-                    </div>
-                    <div>
-                    <Link to={room.link}><button className='bg-[#7C6A46] px-6 py-2 text-white'>Book Now</button></Link>  
-                    </div>
-                </div>
-            </div>
-            ))}
-        </div>
-
-
-
-        <div ref={exec1} className='hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 px-5  lg:px-20 gap-16'>
-            {roomlay4.map(room =>(
-                <div key={room.id} className='w-fit h-fit bg-white shadow-xl text-[#7C6A46]  '>
-                <div>
-                    <img src={room.image} alt="roompic"  className='w-[410px]'/>
-                </div>
-                <div className='flex justify-between p-2'>
-                    <p className='text-[20px] font-semibold'>{room.type}</p>
-                    <p>Available: Yes</p>
-                </div>
-                <div className='p-2'>
-                    <p className='text-[15px] font-semibold'>{room.price} </p>
-                </div>
-                <hr />
-                <div className='flex justify-between p-2 items-center'>
-                    <div className='flex gap-2'>
-                        <div className='w-fit h-fit bg-[whitesmoke] p-2 rounded-full'>
-                            <PiTelevisionSimple size={25}/>
-                        </div>
-                        <div className='w-fit h-fit bg-[whitesmoke] p-2 rounded-full'>
-                            <PiShower size={25} />
-                        </div>
-                        <div className='w-fit h-fit bg-[whitesmoke] p-2 rounded-full'>
-                            <PiWifiHighLight size={25}/>
-                        </div>
-                    </div>
-                    <div>
-                    <Link to={room.link}><button className='bg-[#7C6A46] px-6 py-2 text-white'>Book Now</button></Link>  
-                    </div>
-                </div>
-            </div>
-            ))}
-        </div>
+       
         </div>
     </div>
   )

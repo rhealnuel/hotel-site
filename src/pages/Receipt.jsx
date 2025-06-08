@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../component/Navbar'
 import Footer from '../component/Footer'
 import { useLocation } from 'react-router-dom';
+import ScrollToTop from '../component/ScrollToTop';
 
 function Receipt() {
     const location = useLocation();
@@ -10,6 +11,8 @@ function Receipt() {
 
   return (
     <div>
+          <ScrollToTop/>
+      
         <Navbar/>
 
         <div className='flex justify-center items-center pt-24'>

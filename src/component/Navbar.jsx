@@ -3,10 +3,11 @@ import logo from '../image/logo.svg'
 import {AiOutlineMenuFold} from 'react-icons/ai'
 import { useRef } from 'react'
 import {IoMdClose} from 'react-icons/io'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 function Navbar() {
+    const navigate =useNavigate()
 
 const menu = useRef(null) ;
 const close = useRef(null);
@@ -43,7 +44,7 @@ const closeMenu = () => {
             </div>
 
             <div>
-                <button className='bg-[#7C6A46] text-white w-[150px] h-[45px] rounded-md hidden lg:block'>Book Now</button>
+                <button onClick={()=> navigate("/rooms?type=all")} className='bg-[#7C6A46] text-white w-[150px] h-[45px] rounded-md hidden lg:block'>Book Now</button>
             </div>
             <div ref={menu} className='lg:hidden flex'>
             <AiOutlineMenuFold  onClick={openMenu} size={30} className='flex  text-[#7C6A46]'/>

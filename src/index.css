@@ -51,4 +51,7 @@
     background-position: center; /* Adjust as needed */
     width: 100vw;
     height: 100vh; /* Set a specific height */
+    overflow-y: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }

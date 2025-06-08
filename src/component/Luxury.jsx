@@ -11,8 +11,9 @@ function Luxury() {
         {
             id: 1,
             image: room1,
-            text:'Quest Rooms',
+            text:'Guest Rooms',
             number: 6,
+            link: "/rooms?type=guest"
             
         },
         {
@@ -20,12 +21,16 @@ function Luxury() {
             image: room2,
             text:'Suites',
             number: 4,
+            link: "/rooms?type=suite"
+
         },
         {
             id: 3,
             image: room3,
             text:'Executive',
             number: 5,
+            link: "/rooms?type=executive"
+
         },
     ]
     
@@ -43,7 +48,7 @@ function Luxury() {
            <div className='flex flex-col lg:flex-row justify-between w-full items-center lg:items-start gap-5 lg:gap-0'>
            {
                     rooms.map(room => (
-                        <Link to={'/rooms'}> 
+                        <Link to={room.link}> 
                             <div key={room.id} className='bg-white w-fit p-4 relative rounded-lg hover:text-[#7C6A46] hover:underline '>
                                 <p className='bg-[#7C6A46] text-white w-fit text-[11px] font-bold p-2 rounded-md absolute right-5 top-6 '>{room.number} Rooms Available</p>
                                 <img src={room.image} alt="room" />
@@ -58,7 +63,7 @@ function Luxury() {
         </div>
      </div>
     </div>
-    <div><Link to={'/rooms'}><button className='bg-[#907d59] text-white px-12 py-3 rounded-lg font-semibold hover:bg-[#7C6A46]'>View All Rooms</button></Link></div>
+    <div><Link to={'/rooms?type=all'}><button className='bg-[#907d59] text-white px-12 py-3 rounded-lg font-semibold hover:bg-[#7C6A46]'>View All Rooms</button></Link></div>
     </div>
 
      )

@@ -1,3 +1,4 @@
+import ScrollToTop from "./component/ScrollToTop";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Explore from "./pages/Explore";

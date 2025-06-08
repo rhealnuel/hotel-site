@@ -7,6 +7,7 @@ import masterlogo from '../image/mastercard.png'
 import visalogo from '../image/visacard.png'
 import vervelogo from '../image/vervecard.png'
 import { useNavigate } from 'react-router-dom'
+import ScrollToTop from '../component/ScrollToTop'
 
 function Payment() {
     const mon = ["...", "01 Jan", "02 Feb", "03 Mar", "04 Apr", "05 May", "06 Jun", "07 Jul", "08 Aug", "09 Sep", "10 Oct", "11 Nov", "12 Dec"];
@@ -112,6 +113,8 @@ function Payment() {
 
   return (
     <div className='overflow-x-hidden'>
+            <ScrollToTop/>
+        
     <div className='flex justify-between w-screen   pt-6 pb-6 pl-4 pr-4 lg:pr-20 lg:pl-20 items-center bg-white shadow-md'>
             <div>
                 <img src={logo} alt="logo" />
