@@ -57,7 +57,7 @@ export const roomlay1 = [
             "https://img.jamesedition.com/listing_images/2025/08/11/11/49/03/2a60e1f6-a7ea-4842-9ca4-b399fb352202/je/1100xxsxm.jpg",
             "https://img.jamesedition.com/listing_images/2025/08/11/11/49/03/95ceb85a-779d-4709-9614-6656328f510c/je/1100xxsxm.jpg",
             "https://img.jamesedition.com/listing_images/2025/08/11/11/49/03/60f8ce50-8d06-45f2-9a2c-48b4f4f99305/je/1100xxsxm.jpg",
-            "https://img.jamesedition.com/listing_images/2025/08/11/11/49/03/cfb0054a-43c0-4f2b-bea9-63ee16b10e41/je/1100xxsxm.jpg
+            "https://img.jamesedition.com/listing_images/2025/08/11/11/49/03/cfb0054a-43c0-4f2b-bea9-63ee16b10e41/je/1100xxsxm.jpg",
             "https://img.jamesedition.com/listing_images/2025/08/11/11/49/03/f141449e-6455-499d-bc7f-11ecba04376e/je/1100xxsxm.jpg",
             "https://img.jamesedition.com/listing_images/2025/08/11/11/49/03/7c282fc7-d07f-4ef8-b2d0-b1e2f2f7f67b/je/1100xxsxm.jpg",
             "https://img.jamesedition.com/listing_images/2025/08/11/11/49/03/8eceb223-422b-4500-b7a2-39b0c9dbca5e/je/1100xxsxm.jpg"
