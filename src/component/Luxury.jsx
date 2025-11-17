@@ -30,8 +30,8 @@ function Luxury() {
         },
         {
             id: 5,
-            image: "https://img-v2.gtsstatic.net/reno/imagereader.aspx?url=https%3A%2F%2Fm.sothebysrealty.com%2F1103i215%2Fm27xdd28yt5fmee2a3hmm6fys3i215&w=1920&q=75&option=N&permitphotoenlargement=false&fallbackimageurl=https://internal.sothebys-staging.gabriels.net/resources/siteresources/commonresources/images/nophoto/no_image_new.png",
-            text:'Daejang-dong, Bundang-gu Seongnam Si, South Korea',
+            image: "https://img.jamesedition.com/listing_images/2025/08/11/11/49/03/2a60e1f6-a7ea-4842-9ca4-b399fb352202/je/1100xxsxm.jpg",
+            text:'684-90 Hannam-dong, Yongsan District, Seoul, South Korea',
             number: "On Hold",
             price: "$13,776,570",
             info: "Purchased by Mr&Mrs Park Jimin Lisa Philips, having an Outstanding balance cost of $50,000, contact support to clear off payment."
