@@ -54,26 +54,26 @@ export const roomlay1 = [
     {
         id: 3,
         image: [
-            "https://img.jamesedition.com/listing_images/2025/08/11/11/49/03/2a60e1f6-a7ea-4842-9ca4-b399fb352202/je/1100xxsxm.jpg",
-            "https://img.jamesedition.com/listing_images/2025/08/11/11/49/03/95ceb85a-779d-4709-9614-6656328f510c/je/1100xxsxm.jpg",
-            "https://img.jamesedition.com/listing_images/2025/08/11/11/49/03/60f8ce50-8d06-45f2-9a2c-48b4f4f99305/je/1100xxsxm.jpg",
-            "https://img.jamesedition.com/listing_images/2025/08/11/11/49/03/cfb0054a-43c0-4f2b-bea9-63ee16b10e41/je/1100xxsxm.jpg",
-            "https://img.jamesedition.com/listing_images/2025/08/11/11/49/03/f141449e-6455-499d-bc7f-11ecba04376e/je/1100xxsxm.jpg",
-            "https://img.jamesedition.com/listing_images/2025/08/11/11/49/03/7c282fc7-d07f-4ef8-b2d0-b1e2f2f7f67b/je/1100xxsxm.jpg",
-            "https://img.jamesedition.com/listing_images/2025/08/11/11/49/03/8eceb223-422b-4500-b7a2-39b0c9dbca5e/je/1100xxsxm.jpg"
+            "https://img-v2.gtsstatic.net/reno/imagereader.aspx?url=https%3A%2F%2Fm.sothebysrealty.com%2F1103i215%2Fm27xdd28yt5fmee2a3hmm6fys3i215&w=1920&q=75&option=N&permitphotoenlargement=false&fallbackimageurl=https://internal.sothebys-staging.gabriels.net/resources/siteresources/commonresources/images/nophoto/no_image_new.png",
+            "https://img-v2.gtsstatic.net/reno/imagereader.aspx?url=https%3A%2F%2Fm.sothebysrealty.com%2F1103i215%2F86jb2em8ae8emaewfsg97dytz4i215&w=1920&q=75&option=N&permitphotoenlargement=false&fallbackimageurl=https://internal.sothebys-staging.gabriels.net/resources/siteresources/commonresources/images/nophoto/no_image_new.png",
+            "https://img-v2.gtsstatic.net/reno/imagereader.aspx?url=https%3A%2F%2Fm.sothebysrealty.com%2F1103i215%2Fhrjrq6rqmz64m2pac5rv13v8s2i215&w=1200&q=75&option=N&permitphotoenlargement=false&fallbackimageurl=https://internal.sothebys-staging.gabriels.net/resources/siteresources/commonresources/images/nophoto/no_image_new.png",
+            "https://img-v2.gtsstatic.net/reno/imagereader.aspx?url=https%3A%2F%2Fm.sothebysrealty.com%2F1103i215%2Fp2gee7p6ggd74hpyj6hp8b4w75i215&w=1200&q=75&option=N&permitphotoenlargement=false&fallbackimageurl=https://internal.sothebys-staging.gabriels.net/resources/siteresources/commonresources/images/nophoto/no_image_new.png",
+            "https://img-v2.gtsstatic.net/reno/imagereader.aspx?url=https%3A%2F%2Fm.sothebysrealty.com%2F1103i215%2Fc0xhen8jmd4kmr2kqd07xca987i215&w=1200&q=75&option=N&permitphotoenlargement=false&fallbackimageurl=https://internal.sothebys-staging.gabriels.net/resources/siteresources/commonresources/images/nophoto/no_image_new.png",
+            "https://img-v2.gtsstatic.net/reno/imagereader.aspx?url=https%3A%2F%2Fm.sothebysrealty.com%2F1103i215%2Ftar3z2562zmrmvthx5t2kmjng4i215&w=1200&q=75&option=N&permitphotoenlargement=false&fallbackimageurl=https://internal.sothebys-staging.gabriels.net/resources/siteresources/commonresources/images/nophoto/no_image_new.png",
+            "https://img-v2.gtsstatic.net/reno/imagereader.aspx?url=https%3A%2F%2Fm.sothebysrealty.com%2F1103i215%2Fzfncjexdkkzemxebpc4rqahn61i215&w=1200&q=75&option=N&permitphotoenlargement=false&fallbackimageurl=https://internal.sothebys-staging.gabriels.net/resources/siteresources/commonresources/images/nophoto/no_image_new.png"
         ],
-        locate:'684-90 Hannam-dong, Yongsan District, Seoul, South Korea',
+        locate:'Daejang-dong, Bundang-gu Seongnam Si, South Korea',
         number: 5,
         price: "",
         rooms: 8,
         bath: "6 Full",
         interior: "0.34 Acre(s).",
         type: "Single Family Homes ",
-        note: "Purchased by Mr&Mrs Park Jimin Shahala Kae Montague, having an Outstanding balance cost of $150,000, contact support to clear off payment.",
+        note: "Purchased by Mr&Mrs Park Jimin Lisa Philips, having an Outstanding balance cost of $50,000, contact support to clear off payment.",
         status: "On Hold",
         for: "For Sale",
         style: "Modern",
-        description: "Located in 684-90 Hannam-dong, Yongsan District, Seoul, South Korea, this ultra-luxury residence is situated within an exclusive residential area, offering exceptional privacy and a serene living environment. With excellent access to Bundang's city center and major transportation networks, it provides the perfect balance of quietude and convenience. The expansive lot and sophisticated design stand out, offering spacious living areas ideal for large families or versatile use. This residence is the perfect choice for those seeking both privacy and accessibility in a premium location."
+        description: "Located in Daejang-dong, Bundang, this ultra-luxury residence is situated within an exclusive residential area, offering exceptional privacy and a serene living environment. With excellent access to Bundang's city center and major transportation networks, it provides the perfect balance of quietude and convenience. The expansive lot and sophisticated design stand out, offering spacious living areas ideal for large families or versatile use. This residence is the perfect choice for those seeking both privacy and accessibility in a premium location."
     },
     {
         id: 4,
