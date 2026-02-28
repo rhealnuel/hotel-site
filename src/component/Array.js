@@ -69,7 +69,7 @@ export const roomlay1 = [
         bath: "6 Full",
         interior: "0.34 Acre(s).",
         type: "Single Family Homes ",
-        note: "Purchased by Mr&Mrs Park Jimin Lisa Philips, having an Outstanding balance cost of $50,000, contact support to clear off payment.",
+        note: "Purchased by Mr&Mrs Jeon Jung-kook Mirja Helene Soderberg, having an Outstanding balance cost of $100,000, contact support to clear off payment.",
         status: "On Hold",
         for: "For Sale",
         style: "Modern",
